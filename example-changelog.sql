@@ -1,7 +1,7 @@
 --liquibase formatted sql
 
 --changeset your.name:1 labels:example-label context:example-context
---comment: example comment
+--comment: Creating the business_types table
 CREATE TABLE `business_types` (
   `id` int(11) NOT NULL,
   `created_date` datetime NOT NULL DEFAULT current_timestamp(),
@@ -9,16 +9,16 @@ CREATE TABLE `business_types` (
   `created_by` int(11) NOT NULL,
   `modified_by` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
-  `kyc_doc_id_list` varchar(100) NOT NULL
+  `kyc_doc_id_list` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
---rollback DROP TABLE business_types;
+--rollback DROP TABLE `business_types`;
 
 --
 -- Dumping data for table `business_types`
 --
 --changeset your.name:2 labels:example-label context:example-context
---comment: example comment
-
+--comment: Inserting initial data into the business_types table
 INSERT INTO `business_types` (`id`, `created_date`, `modified_date`, `created_by`, `modified_by`, `name`, `kyc_doc_id_list`) VALUES
 (1, '2022-12-13 06:27:54', '2022-12-13 06:27:54', 1, 1, 'Proprietorship', '1,2,3'),
 (2, '2022-12-13 06:27:54', '2022-12-13 06:27:54', 1, 1, 'Partnership', '1,2,3'),
@@ -27,9 +27,4 @@ INSERT INTO `business_types` (`id`, `created_date`, `modified_date`, `created_by
 (5, '2022-12-13 06:27:54', '2022-12-13 06:27:54', 1, 1, 'Others', '1,2,3'),
 (6, '2022-12-13 06:27:54', '2022-12-13 06:27:54', 1, 1, 'Undefined', '0');
 
--- rollback DELETE FROM example_table WHERE id = 1;
-
-
-
-
-
+--rollback DELETE FROM `business_types` WHERE `id` IN (1, 2, 3, 4, 5, 6);

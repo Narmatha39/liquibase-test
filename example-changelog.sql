@@ -11,9 +11,13 @@ CREATE TABLE `business_types` (
   `name` varchar(50) NOT NULL,
   `kyc_doc_id_list` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+--rollback DROP TABLE business_types;
+
 --
 -- Dumping data for table `business_types`
 --
+--changeset your.name:2 labels:example-label context:example-context
+--comment: example comment
 
 INSERT INTO `business_types` (`id`, `created_date`, `modified_date`, `created_by`, `modified_by`, `name`, `kyc_doc_id_list`) VALUES
 (1, '2022-12-13 06:27:54', '2022-12-13 06:27:54', 1, 1, 'Proprietorship', '1,2,3'),
@@ -23,7 +27,8 @@ INSERT INTO `business_types` (`id`, `created_date`, `modified_date`, `created_by
 (5, '2022-12-13 06:27:54', '2022-12-13 06:27:54', 1, 1, 'Others', '1,2,3'),
 (6, '2022-12-13 06:27:54', '2022-12-13 06:27:54', 1, 1, 'Undefined', '0');
 
---rollback DROP TABLE business_types;
+-- rollback DELETE FROM example_table WHERE id = 1;
+
 
 
 

@@ -2,7 +2,7 @@
 
 --changeset your.name:1 labels:example-label context:example-context
 --comment: example comment
-CREATE TABLE `business_types` (
+CREATE TABLE `business_type` (
   `id` int(11) NOT NULL,
   `created_date` datetime NOT NULL DEFAULT current_timestamp(),
   `modified_date` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
@@ -12,7 +12,7 @@ CREATE TABLE `business_types` (
   `kyc_doc_id_list` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---rollback DROP TABLE business_types;
+--rollback DROP TABLE business_type;
 
 
 
